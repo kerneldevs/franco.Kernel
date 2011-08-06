@@ -768,7 +768,7 @@ static int mddi_hitachi_lcd_init(void)
 		pinfo->bpp = 16;
 	
 		// vsync config
-		pinfo->lcd.vsync_enable = TRUE;
+		pinfo->lcd.vsync_enable = FALSE;
 		pinfo->lcd.refx100 = (mddi_hitachi_rows_per_second * 100) /
                         		mddi_hitachi_rows_per_refresh;
 
@@ -781,7 +781,7 @@ static int mddi_hitachi_lcd_init(void)
 		pinfo->lcd.v_front_porch = 6;
 		pinfo->lcd.v_pulse_width = 4;
 
-		pinfo->lcd.hw_vsync_mode = TRUE;
+		pinfo->lcd.hw_vsync_mode = FALSE;
 		pinfo->lcd.vsync_notifier_period = (1 * HZ);
 
 		pinfo->bl_max = 4;
@@ -820,11 +820,11 @@ static void mddi_hitachi_lcd_panel_poweron(void)
 
 	if(pdata && pdata->gpio) {
 		gpio_set_value(pdata->gpio, 1);
-		mdelay(10);
+		//mdelay(10);
 		gpio_set_value(pdata->gpio, 0);
-		mdelay(15);
+		//mdelay(15);
 		gpio_set_value(pdata->gpio, 1);
-		mdelay(30);
+		//mdelay(30);
 	}
 }
 
@@ -841,9 +841,9 @@ static void mddi_hitachi_lcd_panel_store_poweron(void)
 	//	gpio_set_value(pdata->gpio, 1);
 	//	mdelay(10);
 		gpio_set_value(pdata->gpio, 0);
-		mdelay(50);
+		//mdelay(50);
 		gpio_set_value(pdata->gpio, 1);
-		mdelay(50);
+		//mdelay(50);
 	}
 }
 
@@ -863,7 +863,7 @@ static void mddi_hitachi_lcd_panel_poweroff(void)
 
 	if(pdata && pdata->gpio) {
 		gpio_set_value(pdata->gpio, 0);
-		mdelay(5);
+		//mdelay(5);
 	}
 }
 module_init(mddi_hitachi_lcd_init);
