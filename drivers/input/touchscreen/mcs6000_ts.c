@@ -727,7 +727,7 @@ static int mcs6000_ts_probe(struct i2c_client *client, const struct i2c_device_i
   int err = 0;
   struct touch_platform_data *ts_pdata;
   struct mcs6000_ts_device *dev;
-  //unsigned char fw_ver, hw_ver;
+  unsigned char fw_ver, hw_ver;
 
   DMSG("%s: start...\n", __FUNCTION__);
 
