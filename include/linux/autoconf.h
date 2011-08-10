@@ -1,7 +1,7 @@
 /*
  * Automatically generated C config: don't edit
  * Linux kernel version: 2.6.32.43
- * Sat Aug  6 09:48:46 2011
+ * Sat Aug  6 10:41:49 2011
  */
 #define AUTOCONF_INCLUDED
 #define CONFIG_VIDEO_V4L1_COMPAT 1
@@ -495,7 +495,6 @@
 #define CONFIG_VECTORS_BASE 0xffff0000
 #define CONFIG_BRCM_LGE_WL_HOSTWAKEUP_IOCTL 1
 #define CONFIG_CPU_FREQ_GOV_SCARY 1
-#define CONFIG_SCHED_BFS 1
 #define CONFIG_SND_MSM_DAI_SOC 1
 #define CONFIG_HZ 100
 #define CONFIG_NETFILTER_XT_MATCH_HELPER 1
