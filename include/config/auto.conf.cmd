@@ -556,7 +556,7 @@ deps_config := \
 include/config/auto.conf: \
 	$(deps_config)
 
-ifneq "$(KERNELVERSION)" "2.6.32.43"
+ifneq "$(KERNELVERSION)" "2.6.32.44"
 include/config/auto.conf: FORCE
 endif
 ifneq "$(ARCH)" "arm"
