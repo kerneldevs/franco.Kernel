@@ -32,7 +32,6 @@
 #include <linux/sched.h>
 #include <linux/slab.h>
 #include <linux/smp.h>
-#include <linux/delay.h>
 #include <linux/srcu.h>
 
 static int init_srcu_struct_fields(struct srcu_struct *sp)
@@ -156,8 +155,6 @@ void __srcu_read_unlock(struct srcu_struct *sp, int idx)
 }
 EXPORT_SYMBOL_GPL(__srcu_read_unlock);
 
-#define SYNCHRONIZE_SRCU_READER_DELAY 10
-
 /**
  * synchronize_srcu - wait for prior SRCU read-side critical-section completion
  * @sp: srcu_struct with which to synchronize.
@@ -221,8 +218,6 @@ void synchronize_srcu(struct srcu_struct *sp)
 	 * will have finished executing.
 	 */
 
-	if (srcu_readers_active_idx(sp, idx))
-    		udelay(SYNCHRONIZE_SRCU_READER_DELAY);
 	while (srcu_readers_active_idx(sp, idx))
 		schedule_timeout_interruptible(1);
 

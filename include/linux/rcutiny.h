@@ -20,79 +20,26 @@
  * Author: Paul E. McKenney <paulmck@linux.vnet.ibm.com>
  *
  * For detailed explanation of Read-Copy Update mechanism see -
- *		Documentation/RCU
+ * 		Documentation/RCU
  */
+
 #ifndef __LINUX_TINY_H
 #define __LINUX_TINY_H
 
 #include <linux/cache.h>
 
-static inline void rcu_init(void)
-{
-}
+void rcu_sched_qs(int cpu);
+void rcu_bh_qs(int cpu);
 
-#ifdef CONFIG_TINY_RCU
+#define __rcu_read_lock()	preempt_disable()
+#define __rcu_read_unlock()	preempt_enable()
+#define __rcu_read_lock_bh()	local_bh_disable()
+#define __rcu_read_unlock_bh()	local_bh_enable()
+#define call_rcu_sched		call_rcu
 
-static inline void synchronize_rcu_expedited(void)
-{
-	synchronize_sched();	/* Only one CPU, so pretty fast anyway!!! */
-}
-
-static inline void rcu_barrier(void)
-{
-	rcu_barrier_sched();  /* Only one CPU, so only one list of callbacks! */
-}
-
-#else /* #ifdef CONFIG_TINY_RCU */
-
-void rcu_barrier(void);
-void synchronize_rcu_expedited(void);
-
-#endif /* #else #ifdef CONFIG_TINY_RCU */
-
-static inline void synchronize_rcu_bh(void)
-{
-	synchronize_sched();
-}
-
-static inline void synchronize_rcu_bh_expedited(void)
-{
-	synchronize_sched();
-}
-
-#ifdef CONFIG_TINY_RCU
-
-static inline void rcu_preempt_note_context_switch(void)
-{
-}
-
-static inline void exit_rcu(void)
-{
-}
-
-static inline int rcu_needs_cpu(int cpu)
-{
-	return 0;
-}
-
-#else /* #ifdef CONFIG_TINY_RCU */
-
-void rcu_preempt_note_context_switch(void);
-extern void exit_rcu(void);
-int rcu_preempt_needs_cpu(void);
-
-static inline int rcu_needs_cpu(int cpu)
-{
-	return rcu_preempt_needs_cpu();
-}
-
-#endif /* #else #ifdef CONFIG_TINY_RCU */
-
-static inline void rcu_note_context_switch(int cpu)
-{
-	rcu_sched_qs(cpu);
-	rcu_preempt_note_context_switch();
-}
+#define rcu_init_sched()	do { } while (0)
+extern void rcu_check_callbacks(int cpu, int user);
+extern void __rcu_init(void);
 
 /*
  * Return the number of grace periods.
@@ -110,25 +57,41 @@ static inline long rcu_batches_completed_bh(void)
 	return 0;
 }
 
-static inline void rcu_force_quiescent_state(void)
+extern int rcu_expedited_torture_stats(char *page);
+
+static inline void synchronize_rcu_expedited(void)
+{
+	synchronize_sched();
+}
+
+static inline void synchronize_rcu_bh_expedited(void)
+{
+	synchronize_sched();
+}
+
+struct notifier_block;
+extern int rcu_cpu_notify(struct notifier_block *self,
+			  unsigned long action, void *hcpu);
+
+#ifdef CONFIG_NO_HZ
+
+extern void rcu_enter_nohz(void);
+extern void rcu_exit_nohz(void);
+
+#else /* #ifdef CONFIG_NO_HZ */
+
+static inline void rcu_enter_nohz(void)
 {
 }
 
-static inline void rcu_bh_force_quiescent_state(void)
+static inline void rcu_exit_nohz(void)
 {
 }
 
-static inline void rcu_sched_force_quiescent_state(void)
-{
-}
+#endif /* #else #ifdef CONFIG_NO_HZ */
 
-#ifdef CONFIG_DEBUG_LOCK_ALLOC
-extern int rcu_scheduler_active __read_mostly;
-extern void rcu_scheduler_starting(void);
-#else /* #ifdef CONFIG_DEBUG_LOCK_ALLOC */
-static inline void rcu_scheduler_starting(void)
+static inline void exit_rcu(void)
 {
 }
-#endif /* #else #ifdef CONFIG_DEBUG_LOCK_ALLOC */
 
 #endif /* __LINUX_RCUTINY_H */

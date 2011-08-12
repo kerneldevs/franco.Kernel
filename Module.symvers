@@ -72,7 +72,6 @@
 0x00000000	laptop_mode	vmlinux	EXPORT_SYMBOL
 0x00000000	end_page_writeback	vmlinux	EXPORT_SYMBOL
 0x00000000	generic_file_direct_write	vmlinux	EXPORT_SYMBOL
-0x00000000	call_rcu_sched	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	skb_recv_datagram	vmlinux	EXPORT_SYMBOL
 0x00000000	fiemap_check_flags	vmlinux	EXPORT_SYMBOL
 0x00000000	generic_file_readonly_mmap	vmlinux	EXPORT_SYMBOL
@@ -2617,7 +2616,10 @@
 0x00000000	tcp_disconnect	vmlinux	EXPORT_SYMBOL
 0x00000000	put_device	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	bio_pair_release	vmlinux	EXPORT_SYMBOL
+<<<<<<< HEAD
 0x00000000	rcu_expedited_torture_stats	vmlinux	EXPORT_SYMBOL_GPL
+=======
+>>>>>>> parent of 27269b5... Backported TINY_PREEMPT_RCU and RCU_BOOST from 2.6.35
 0x00000000	msm_fsusb_reset_phy	vmlinux	EXPORT_SYMBOL
 0x00000000	ppp_input	vmlinux	EXPORT_SYMBOL
 0x00000000	journal_start	vmlinux	EXPORT_SYMBOL
@@ -3238,6 +3240,7 @@
 0x00000000	alloc_page_buffers	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	__cleancache_flush_inode	vmlinux	EXPORT_SYMBOL
 0x00000000	register_oom_notifier	vmlinux	EXPORT_SYMBOL_GPL
+0x00000000	synchronize_rcu_bh	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	handle_nested_irq	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	neigh_lookup	vmlinux	EXPORT_SYMBOL
 0x00000000	mmc_remove_host	vmlinux	EXPORT_SYMBOL

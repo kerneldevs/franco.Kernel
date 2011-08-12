@@ -1,7 +1,12 @@
 /*
  * Automatically generated C config: don't edit
+<<<<<<< HEAD
  * Linux kernel version: 2.6.32.44
  * Wed Aug 10 05:29:23 2011
+=======
+ * Linux kernel version: 2.6.32.41
+ * Mon Jun 27 01:32:29 2011
+>>>>>>> parent of 27269b5... Backported TINY_PREEMPT_RCU and RCU_BOOST from 2.6.35
  */
 #define AUTOCONF_INCLUDED
 #define CONFIG_VIDEO_V4L1_COMPAT 1
@@ -498,7 +503,7 @@
 #define CONFIG_BRCM_LGE_WL_HOSTWAKEUP_IOCTL 1
 #define CONFIG_CPU_FREQ_GOV_SCARY 1
 #define CONFIG_SND_MSM_DAI_SOC 1
-#define CONFIG_HZ 100
+#define CONFIG_HZ 250
 #define CONFIG_NETFILTER_XT_MATCH_HELPER 1
 #define CONFIG_CPU_32v6K 1
 #define CONFIG_CPU_HAS_ASID 1
