@@ -1932,6 +1932,7 @@
 0x00000000	bd_claim	vmlinux	EXPORT_SYMBOL
 0x00000000	nfs_debug	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	nf_ct_deliver_cached_events	vmlinux	EXPORT_SYMBOL_GPL
+0x00000000	call_rcu	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	crypto_nivaead_type	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	bdi_writeout_inc	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	audmgr_open	vmlinux	EXPORT_SYMBOL
@@ -2616,10 +2617,7 @@
 0x00000000	tcp_disconnect	vmlinux	EXPORT_SYMBOL
 0x00000000	put_device	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	bio_pair_release	vmlinux	EXPORT_SYMBOL
-<<<<<<< HEAD
 0x00000000	rcu_expedited_torture_stats	vmlinux	EXPORT_SYMBOL_GPL
-=======
->>>>>>> parent of 27269b5... Backported TINY_PREEMPT_RCU and RCU_BOOST from 2.6.35
 0x00000000	msm_fsusb_reset_phy	vmlinux	EXPORT_SYMBOL
 0x00000000	ppp_input	vmlinux	EXPORT_SYMBOL
 0x00000000	journal_start	vmlinux	EXPORT_SYMBOL
@@ -3175,6 +3173,7 @@
 0x00000000	tcp_v4_destroy_sock	vmlinux	EXPORT_SYMBOL
 0x00000000	inotify_rm_watch	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	can_do_mlock	vmlinux	EXPORT_SYMBOL
+0x00000000	rcu_barrier	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	libra_sdio_enable_polling	drivers/net/wireless/libra/librasdioif	EXPORT_SYMBOL
 0x00000000	sprintf	vmlinux	EXPORT_SYMBOL
 0x00000000	pm_op_lock	vmlinux	EXPORT_SYMBOL
