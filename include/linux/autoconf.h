@@ -1,7 +1,7 @@
 /*
  * Automatically generated C config: don't edit
  * Linux kernel version: 2.6.32.44
- * Fri Aug 12 17:15:49 2011
+ * Sat Aug 13 10:01:15 2011
  */
 #define AUTOCONF_INCLUDED
 #define CONFIG_VIDEO_V4L1_COMPAT 1
@@ -441,7 +441,7 @@
 #define CONFIG_MSM_SMD_TTY 1
 #define CONFIG_MSM7200A_TLMM 1
 #define CONFIG_MD 1
-#define CONFIG_LOCALVERSION "-franco.Kernel.v19.1"
+#define CONFIG_LOCALVERSION "-franco.Kernel.v19.2"
 #define CONFIG_USB_MSM_OTG_72K 1
 #define CONFIG_MEDIA_TUNER_MC44S803 1
 #define CONFIG_DIAG_CHAR 1
@@ -497,6 +497,7 @@
 #define CONFIG_VECTORS_BASE 0xffff0000
 #define CONFIG_BRCM_LGE_WL_HOSTWAKEUP_IOCTL 1
 #define CONFIG_CPU_FREQ_GOV_SCARY 1
+#define CONFIG_SCHED_BFS 1
 #define CONFIG_SND_MSM_DAI_SOC 1
 #define CONFIG_HZ 100
 #define CONFIG_NETFILTER_XT_MATCH_HELPER 1
