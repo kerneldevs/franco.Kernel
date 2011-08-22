@@ -595,6 +595,9 @@ choice
 
 	config DEFAULT_RENO
 		bool "Reno"
+		
+	config DEFAULT_VENO
+		bool "Veno" if TCP_CONG_VENO=y
 
 endchoice
 
@@ -613,6 +616,7 @@ config DEFAULT_TCP_CONG
 	default "vegas" if DEFAULT_VEGAS
 	default "westwood" if DEFAULT_WESTWOOD
 	default "reno" if DEFAULT_RENO
+	default "veno" if DEFAULT_VENO
 	default "cubic"
 
 config TCP_MD5SIG
