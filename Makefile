@@ -1,7 +1,7 @@
 VERSION = 2
 PATCHLEVEL = 6
 SUBLEVEL = 32
-EXTRAVERSION = .46
+EXTRAVERSION = .45
 NAME = Man-Eating Seals of Antiquity
 
 # *DOCUMENTATION*
@@ -182,7 +182,7 @@ SUBARCH := arm
 # Note: Some architectures assign CROSS_COMPILE in their arch/*/Makefile
 export KBUILD_BUILDHOST := $(SUBARCH)
 ARCH		?= arm
-CROSS_COMPILE	?= /home/francisco/Desktop/arm-2011.03/bin/arm-none-eabi-
+CROSS_COMPILE	?= ../arm-2011.03/bin/arm-none-eabi-
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
